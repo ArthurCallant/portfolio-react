@@ -1,0 +1,74 @@
+.m-project-selectors {
+  height: 3rem;
+  margin-bottom: 1rem;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  &__item {
+    display: inline-block;
+    margin: 0 0.1rem;
+    height: 100%;
+    width: 1rem;
+    background: black;
+    cursor: pointer;
+    &:hover {
+      transform: translateY(0.5rem);
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -0.5rem;
+        left: 0;
+        height: 0.5rem;
+        width: 1rem;
+        background: black;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+        border-top: 0.5rem solid black;
+      }
+    }
+    &--active {
+      transform: translateY(0.5rem);
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -0.5rem;
+        left: 0;
+        height: 0.5rem;
+        width: 1rem;
+        background: black;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+        border-top: 0.5rem solid black;
+      }
+    }
+    &--home,
+    &--home:hover {
+      background: darkslategrey;
+      &::before {
+        background: darkslategrey;
+      }
+      &::after {
+        border-top: 0.5rem solid darkslategrey;
+      }
+    }
+  }
+}

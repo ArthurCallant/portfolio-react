@@ -1,0 +1,23 @@
+.m-card {
+  background: white;
+  position: relative;
+  display: inline-block;
+  border-radius: 1rem 0 0 0;
+  &::before {
+    content: '';
+    border-radius: 1rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -0.5rem;
+    left: -0.5rem;
+    background: red;
+    z-index: -1;
+  }
+  &__title {
+    &--anchor {
+    }
+  }
+  &__description {
+  }
+}

@@ -1,0 +1,15 @@
+.m-project {
+  display: flex;
+  &__left,
+  &__right {
+    display: flex;
+    flex-direction: column;
+  }
+  &__image {
+    position: relative;
+    border-radius: 25%;
+    border: 1rem solid darkslategrey;
+    width: 5rem;
+    height: 5rem;
+  }
+}
