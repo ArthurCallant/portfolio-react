@@ -1,23 +1,33 @@
-import { CardProps } from './Card.types';
+'use client';
+import { CardProps, ProjectConfig, Title } from './Card.types';
 import './Card.scss';
-import Image from 'next/image';
+import { PROJECTS } from '@/app/config/projects';
+import { useEffect, useState } from 'react';
 
-export const Card = ({ title, description, image, alt, href }: CardProps) => {
-  const renderTitle = () => {
-    if (href) {
+export const Card = ({ projectValue }: CardProps) => {
+  const [isMounted, setIsMounted] = useState(false);
+  const project = PROJECTS[projectValue] as ProjectConfig;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const renderTitle = (title: Title) => {
+    if (title.href) {
       return (
-        <a className="m-card__title m-card__title--anchor" href={href}>
-          {title}
+        <a className="m-card__title m-card__title-anchor" href={title.href}>
+          {title.label}
         </a>
       );
     }
-    return <h1 className="m-card__title">{title}</h1>;
+    return <h1 className="m-card__title">{title.label}</h1>;
   };
-  return (
+
+  return isMounted ? (
     <div className="m-card">
-      {image && <Image src={image} alt={alt || 'Card image'} />}
-      {title && renderTitle()}
-      {description && <p className="m-card__description">{description}</p>}
+      {renderTitle(project.title)}
+      <div className="m-card__divider"></div>
+      <p className="m-card__description" dangerouslySetInnerHTML={{ __html: project.description }}></p>
     </div>
-  );
+  ) : null;
 };

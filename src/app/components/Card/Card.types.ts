@@ -1,7 +1,15 @@
+import { PROJECTS } from '@/app/config/projects';
+
 export interface CardProps {
-  title?: string;
-  description?: string;
-  image?: string;
-  alt?: string;
+  projectValue: keyof typeof PROJECTS;
+}
+
+export interface ProjectConfig {
+  title: Title;
+  description: string;
+}
+
+export interface Title {
+  label: string;
   href?: string;
 }

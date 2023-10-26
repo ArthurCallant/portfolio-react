@@ -1,73 +1,72 @@
+@import '../../styles/nuclides/index.scss';
+
+@mixin pos-abs-top-left($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
 .m-project-selectors {
   height: 3rem;
   margin-bottom: 1rem;
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
+  margin-left: 1rem;
+  margin-right: 1rem;
   &__item {
     display: inline-block;
     margin: 0 0.1rem;
     height: 100%;
     width: 1rem;
-    background: black;
+    background: $color-white;
     cursor: pointer;
+    // transition: transform 300ms linear;
     &:hover {
       transform: translateY(0.5rem);
       position: relative;
       &::before {
+        @include pos-abs-top-left(-0.5rem, 0);
         content: '';
-        position: absolute;
-        top: -0.5rem;
-        left: 0;
         height: 0.5rem;
         width: 1rem;
-        background: black;
+        background: $color-white;
       }
       &::after {
+        @include pos-abs-top-left(100%, 0);
         content: '';
-        position: absolute;
-        top: 100%;
-        left: 0;
         width: 0;
         height: 0;
         border-left: 0.5rem solid transparent;
         border-right: 0.5rem solid transparent;
-        border-top: 0.5rem solid black;
+        border-top: 0.5rem solid $color-white;
       }
     }
     &--active {
       transform: translateY(0.5rem);
       position: relative;
       &::before {
+        @include pos-abs-top-left(-0.5rem, 0);
         content: '';
-        position: absolute;
-        top: -0.5rem;
-        left: 0;
         height: 0.5rem;
         width: 1rem;
-        background: black;
+        background: $color-white;
       }
       &::after {
+        @include pos-abs-top-left(100%, 0);
         content: '';
-        position: absolute;
-        top: 100%;
-        left: 0;
         width: 0;
         height: 0;
         border-left: 0.5rem solid transparent;
         border-right: 0.5rem solid transparent;
-        border-top: 0.5rem solid black;
+        border-top: 0.5rem solid $color-white;
       }
     }
     &--home,
     &--home:hover {
-      background: darkslategrey;
+      background: $badass-green;
       &::before {
-        background: darkslategrey;
+        background: $badass-green;
       }
       &::after {
-        border-top: 0.5rem solid darkslategrey;
+        border-top: 0.5rem solid $badass-green;
       }
     }
   }

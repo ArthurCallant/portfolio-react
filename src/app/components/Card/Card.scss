@@ -1,23 +1,31 @@
+@import '../../styles/nuclides/colors.nuclides.scss';
+
 .m-card {
-  background: white;
-  position: relative;
-  display: inline-block;
-  border-radius: 1rem 0 0 0;
-  &::before {
-    content: '';
-    border-radius: 1rem;
-    position: absolute;
-    height: 100%;
+  width: 350px;
+  padding: 1rem;
+  color: $color-white;
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, $badass-green, $color-black) 1 100%;
+  &__divider {
+    height: 1px;
     width: 100%;
-    top: -0.5rem;
-    left: -0.5rem;
-    background: red;
-    z-index: -1;
+    margin: 0.875rem 0;
+    background-image: linear-gradient(to right, $color-black 0, $badass-green 50%, $color-black 100%);
   }
   &__title {
-    &--anchor {
+    font-size: 1.125rem;
+    font-weight: normal;
+    color: $color-white;
+    transition: color 300ms linear;
+    &-anchor {
+      text-decoration: none;
+      &:hover {
+        color: $badass-green;
+      }
     }
   }
   &__description {
+    font-size: 0.875rem;
   }
 }
